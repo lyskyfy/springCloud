@@ -14,6 +14,9 @@ public class PaymentMain8001 {
     public static void main(String[] args) {
         SpringApplication.run(PaymentMain8001.class, args);
     }
-
+    public String test(){
+        System.out.println("my name is liubaolai");
+        return "index";
+    }
 }
 
