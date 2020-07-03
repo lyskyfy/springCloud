@@ -13,4 +13,7 @@ ribbon:
   #指的是建立连接后从服务器读取到可用资源所用的时间
   ConnectTimeout: 5000
 
-
+#设置日志打印的范围和级别
+logging:
+  level:
+    com.atguigu.springcloud.service.PaymentFeignService: debug
