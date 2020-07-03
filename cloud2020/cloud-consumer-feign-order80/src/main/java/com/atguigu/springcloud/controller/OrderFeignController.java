@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -23,4 +24,11 @@ public class OrderFeignController {
         log.info("This is feign controller ~~~~~~ ~~~~~~ ~~~~~~");
         return paymentFeignService.getPaymentById(id);
     }
+
+    @GetMapping(value = "/consumer/payment/feign/timeout")
+    public String paymentFeignTimeout(){
+        log.info("~~~~~~~~~~~~~This is feign timeout 5000 test controller ~~~~~~ ~~~~~~ ~~~~~~");
+        return paymentFeignService.paymentFeignTimeout();
+    }
+
 }
