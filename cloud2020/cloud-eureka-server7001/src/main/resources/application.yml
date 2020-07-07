@@ -8,4 +8,5 @@ eureka:
     register-with-eureka: false   # false表示自己不需要向注册中心注册自己
     service-url:
       #defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/      # 设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址(单机版)
-      defaultZone: http://eureka7002.com:7002/eureka/   # 集群版
+      #defaultZone: http://eureka7002.com:7002/eureka/   # 集群版
+      defaultZone: http://eureka7001.com:7001/eureka/   # 单机版
