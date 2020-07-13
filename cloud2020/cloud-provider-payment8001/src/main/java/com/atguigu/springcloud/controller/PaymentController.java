@@ -71,6 +71,11 @@ public class PaymentController {
         return serverPort;
     }
 
+    @GetMapping(value = "/payment/lb")
+    public String gatPaymentLB(){
+        return serverPort;
+    }
+
 
     @PostMapping(value = "/payment/registerUser")
     public CommonResult registerUser(@RequestBody UserInfo user){
