@@ -1,0 +1,33 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: payment_routh #路由ID，没有固定的规则，但要求唯一，建议配合服务名
+          uri: http://localhost:8001   #匹配后提供服务无的路由地址
+          predicates:
+            - Path=/payment/get/**  #
+
+        - id: payment_routh2 #路由ID，没有固定的规则，但要求唯一，建议配合服务名
+          uri: http://localhost:8001   #匹配后提供服务无的路由地址
+          predicates:
+            - Path=/payment/lb/**  #
+
+        - id: payment_routh3 #路由ID，没有固定的规则，但要求唯一，建议配合服务名
+          uri: http://news.baidu.com/guonei   #匹配后提供服务无的路由地址，最终访问目的地
+          predicates:
+            - Path=/guonei # 映射ID
+
+eureka:
+  instance:
+    hostname: cloud-gateway-service
+  client:
+    service-url:
+      register-with-eureka: true
+      fetch-registry: true
+      defaultZone: http://eureka7001.com:7001/eureka
+
