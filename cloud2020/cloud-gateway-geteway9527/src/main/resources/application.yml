@@ -6,14 +6,20 @@ spring:
     name: cloud-gateway
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+
       routes:
         - id: payment_routh #路由ID，没有固定的规则，但要求唯一，建议配合服务名
-          uri: http://localhost:8001   #匹配后提供服务无的路由地址
+         # uri: http://localhost:8001   #匹配后提供服务无的路由地址
+          uri: lb://cloud-payment-service  #匹配后服务提供者的路由地址
           predicates:
             - Path=/payment/get/**  #
 
         - id: payment_routh2 #路由ID，没有固定的规则，但要求唯一，建议配合服务名
-          uri: http://localhost:8001   #匹配后提供服务无的路由地址
+         # uri: http://localhost:8001   #匹配后提供服务无的路由地址
+          uri: lb://cloud-payment-service  #匹配后服务提供者的路由地址
           predicates:
             - Path=/payment/lb/**  #
 
