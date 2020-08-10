@@ -5,13 +5,27 @@ spring:
   application:
     name: config-client
   cloud:
-      config:
-        label: master
-        name: config
-        profile: dev
-        uri: http://localhost:3344
+    config:
+      label: master
+      name: config
+      profile: dev
+      uri: http://localhost:3344
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:7001/eureka
+
+# rabbit 相关配置
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
